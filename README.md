@@ -1,4 +1,4 @@
-undefined gaby
+Pruebas y validacion mermas
 # Inicialización
 ## mobil
 para inicializar mobil es necesario correr el comando
