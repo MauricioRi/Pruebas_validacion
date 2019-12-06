@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import {columns} from './../../../../services/users';
+import { columns } from './../../../../services/insumos';
 import DialogKiosk from './DialogKiosk'
 import { Grid } from '@material-ui/core';
 
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function TableKiosks({rows, change}) {
+export default function TableKiosks({ rows, change }) {
     console.log(rows);
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
@@ -44,49 +44,52 @@ export default function TableKiosks({rows, change}) {
         setPage(0);
     };
 
-return (
-    <Grid container>
-        <Grid item xs={12}>
-            <div className={classes.title}><LocalDiningIcon className={classes.title}/>INSUMOS</div>
-            <br/>
+    return (
+        <Grid container>
+            <Grid item xs={12}>
+                <div className={classes.title}><LocalDiningIcon className={classes.title} />INSUMOS</div>
+                <br />
 
-        </Grid>
-        <Grid item xs={12}>
-            <Paper className={classes.root}>
-                <div className={classes.tableWrapper}>
-                    <Table stickyHeader>
-                    <TableHead>
-                        <TableRow>
-                        {columns.map(column => (
-                            <TableCell
-                            key={column.id}
-                            align={column.align}
-                            style={{ minWidth: column.minWidth }}
-                            >
-                            {column.label}
-                            </TableCell>
-                        ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
-                           
-                           
-                        return (
-                            <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                                <TableCell align={row.align}>{row.Username}</TableCell>
-                                <TableCell align="right">{row.Password}</TableCell>
-                                <TableCell align="right">{row.Rol}</TableCell>
-                                <TableCell align="right">{row.Mail}</TableCell>
-                                
-                              
-                                <TableCell align="right">
-                                <DialogKiosk row={row} change={change}/>
+            </Grid>
+            <Grid item xs={12}>
+                <Paper className={classes.root}>
+                    <div className={classes.tableWrapper}>
+                        <Table stickyHeader>
+                            <TableHead>
+                                <TableRow>
+                                    {columns.map(column => (
+                                        <TableCell
+                                            key={column.id}
+                                            align={column.align}
+                                            style={{ minWidth: column.minWidth }}
+                                        >
+                                            {column.label}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
 
 
-                                    
-                                </TableCell>
-                            {/*columns.map(column => {
+                                    return (
+                                        <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                                            <TableCell align={row.align}>{row.Name}</TableCell>
+                                            <TableCell align="right">{row.Quantity}</TableCell>
+
+                                            <TableCell align="right">{row.Area_insumo}</TableCell>
+                                            <TableCell align="right">{row.Stock_max}</TableCell>
+                                            <TableCell align="right">{row.Stock_min}</TableCell>
+                                            <TableCell align="right">{row.Stock_alert}</TableCell>
+                                            <TableCell align="right">{row.Cost}</TableCell>
+
+                                            <TableCell align="right">
+                                                <DialogKiosk row={row} change={change} />
+
+
+
+                                            </TableCell>
+                                            {/*columns.map(column => {
                                 const value = row[column.id];
                                 return (
                                 <TableCell key={column.id} align={column.align}>
@@ -94,30 +97,30 @@ return (
                                 </TableCell>
                                 );
                             })*/}
-                            </TableRow>
-                        );
-                        })}
-                    </TableBody>
-                    </Table>
-                </div>
-                <TablePagination
-                    rowsPerPageOptions={[8, 25, 100]}
-                    component="div"
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    backIconButtonProps={{
-                    'aria-label': 'previous page',
-                    }}
-                    nextIconButtonProps={{
-                    'aria-label': 'next page',
-                    }}
-                    onChangePage={handleChangePage}
-                    onChangeRowsPerPage={handleChangeRowsPerPage}
-                />
+                                        </TableRow>
+                                    );
+                                })}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <TablePagination
+                        rowsPerPageOptions={[8, 25, 100]}
+                        component="div"
+                        count={rows.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        backIconButtonProps={{
+                            'aria-label': 'previous page',
+                        }}
+                        nextIconButtonProps={{
+                            'aria-label': 'next page',
+                        }}
+                        onChangePage={handleChangePage}
+                        onChangeRowsPerPage={handleChangeRowsPerPage}
+                    />
                 </Paper>
+            </Grid>
         </Grid>
-    </Grid>
-    
-);
+
+    );
 }

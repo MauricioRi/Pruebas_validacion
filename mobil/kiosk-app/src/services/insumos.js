@@ -1,7 +1,6 @@
 export const columns = [
     { label: 'Nombre', id: 'Name', minWidth: 100, align: 'center' },
     { label: 'Cantidad', id: 'Quantity', minWidth: 100, align: 'center' },
-    { label: 'cant_uni', id: 'Unitary_quantity', minWidth: 100, align: 'center' },
     { label: 'area', id: 'Area_insumo', minWidth: 100, align: 'right' },
     { label: 'Cant_max', id: 'Stock_max', minWidth: 100, align: 'right' },
     { label: 'Cant_Min', id: 'Stock_min', minWidth: 100, align: 'right' },

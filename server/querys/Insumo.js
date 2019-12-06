@@ -15,8 +15,9 @@ function getInsumo(req, res) {
 
 function setInsumo(req, res) {
     //UPDATE table_name SET field1 = new-value1, field2 = new-value2
-
-    con.query(`UPDATE insumo SET  Name=? , Quantity=? , Unitary_quantity=? , Status=? , Area_insumo=? ,Id_unit=? ,Stock_max=? ,Stock_min=? ,Stock_alert=? ,Cost=?  WHERE Id_insumo ,=?`,
+   // con.query(`UPDATE usuario SET Username=?, Rol=?, Mail=?,Password=? WHERE Id_user=?`, 
+   
+    con.query(`UPDATE insumo SET  Name=? , Quantity=? , Unitary_quantity=? , Status=? , Area_insumo=? ,Id_unit=? ,Stock_max=? ,Stock_min=? ,Stock_alert=? ,Cost=?  WHERE Id_insumo=?`,
         [req.body.Name, req.body.Quantity, req.body.Unitary_quantity, req.body.Status, req.body.Area_insumo, req.body.Id_unit, req.body.Stock_max, req.body.Stock_min, req.body.Stock_alert, req.body.Cost, req.body.Id_insumo],
         function (err, result) {
             if (err) {

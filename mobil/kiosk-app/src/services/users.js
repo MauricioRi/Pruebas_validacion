@@ -1,8 +1,9 @@
 export const columns = [
-    { label: 'Usuario', id: 'Username', minWidth: 100, align: 'center' },
-    { label: 'Contraseña', id: 'Password', minWidth: 100, align: 'center' },
+    { label: 'Nombre', id: 'Username', minWidth: 100, align: 'center' },
+    { label: 'contraseña', id: 'Password', minWidth: 100, align: 'center' },
      { label: 'Rol', id: 'Rol', minWidth: 100, align: 'center' },
     { label: 'Correo', id: 'Mail', minWidth: 100, align: 'right' },
+    
     
     { label: '', id: 'actions', minWidth: 0, align: 'right' }
 ];
