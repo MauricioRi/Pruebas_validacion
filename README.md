@@ -1,9 +1,9 @@
-pruebas
+undefined gaby
 # Inicialización
-## webPage
-para inicializar webPage es necesario correr el comando
+## mobil
+para inicializar mobil es necesario correr el comando
 `yarn install` 
 o 
 `npm install`
 
-dentro de la carpeta webPage
+dentro de la carpeta mobil
